@@ -9,11 +9,10 @@ development:
   <<: *default
   database: autumn_backend_development
 
-
 test:
   <<: *default
   database: autumn_backend_test
-  
+
 production:
   <<: *default
   database: autumn_backend_production
