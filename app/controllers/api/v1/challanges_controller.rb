@@ -1,7 +1,6 @@
 module Api
   module V1
     class ChallangesController < ApplicationController
-
       before_action :set_challange, only: [:show, :update, :destroy]
 
       def index
