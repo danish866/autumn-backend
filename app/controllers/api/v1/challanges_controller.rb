@@ -1,0 +1,3 @@
+class ChallangesController < ApplicationController
+
+end
