@@ -17,6 +17,7 @@
 /tmp/pids/*
 !/tmp/pids/
 !/tmp/pids/.keep
+git_commit_push.sh
 
 # Ignore uploaded files in development.
 /storage/*
