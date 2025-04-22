@@ -2,6 +2,7 @@ module Api
   module V1
     class ChallangesController < ApplicationController
       before_action :authenticate_user!, only: [:create, :update, :destroy]
+      before_action :authorize_admin!, only: [:create, :update, :destroy]
       before_action :set_challange, only: [:show, :update, :destroy]
 
       def index
@@ -45,6 +46,12 @@ module Api
       end
 
       private
+
+      def authorize_admin!
+        unless current_user.email == ENV['ADMIN_EMAIL']
+          render json: { error: 'You are not authorized to perform this action' }, status: :forbidden
+        end
+      end
 
       def set_challange
         @challange = Challange.find(params[:id])
