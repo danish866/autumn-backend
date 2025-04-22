@@ -1,6 +1,7 @@
 module Api
   module V1
     class ChallangesController < ApplicationController
+      before_action :authenticate_user!, only: [:create, :update, :destroy]
       before_action :set_challange, only: [:show, :update, :destroy]
 
       def index
@@ -9,7 +10,7 @@ module Api
       end
       
       def create
-        challange = Challange.new(challange_params)
+        challange = current_user.challanges.build(challange_params)
         if challange.save
           render json: challange, status: :created
         else
